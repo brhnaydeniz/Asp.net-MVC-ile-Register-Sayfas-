@@ -1,0 +1,67 @@
+﻿@using WebApplication1.Models
+@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link href="~/Content/register.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center"> Hesap Oluştur </h4>
+            <p class="text-center">Get started with your free account</p>
+            <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>Twitter İle Kayıt Ol</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>Facebook İle Kayıt Ol</a>
+            </p>
+            <p class="divider-text">
+                <span class="bg-light">Veya</span>
+            </p>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    @Html.TextBoxFor(x => x.name, new {@class = "form-control", Required="Required", placeholder="Adınızı Giriniz", })
+                </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            @Html.TextBoxFor(x => x.email, new { @class = "form-control", Required = "Required", placeholder = "Mail Adresini Giriniz", type="email"})
+        </div> <!-- form-group// -->
+                
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", Required = "Required", placeholder = "Şifrenizi Giriniz", type="password"})
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            @Html.TextBoxFor(x => x.Repassword, new { @class = "form-control", Required = "Required", placeholder = "Şifrenizi Tekrar Giriniz", type="password" })
+        </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Kayıt Ol  </button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="">Log In</a> </p>
+            }
+        </article>
+    </div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
